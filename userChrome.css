@@ -1,0 +1,133 @@
+/* ────────────────────────────────────────────────────────────
+   Firefox (Linux) — unified translucent chrome + vertical tabs
+   Palette: bg = #282c3c (~60% transparency), fg = white
+   ──────────────────────────────────────────────────────────── */
+@media (-moz-platform: linux) {
+
+  /* === palette === */
+  :root {
+    /* bg = #282c3c -> rgb(40,44,60); alpha .80 = ~20% transparent */
+    --uc-r: 40; --uc-g: 44; --uc-b: 60;
+    --uc-a: .80;
+    --uc-surface: rgba(var(--uc-r), var(--uc-g), var(--uc-b), var(--uc-a));
+    --uc-fg: #ffffff;
+  }
+
+  /* Keep the window surface from blocking translucency */
+  #browser { background: transparent !important; }
+
+  /* ===================== TOP BAR ====================== */
+  /* Paint ONLY the toolbox so opacity matches everywhere */
+  #navigator-toolbox {
+    -moz-appearance: none !important;
+    background: var(--uc-surface) !important;
+    background-image: none !important;
+    color: var(--uc-fg) !important;
+  }
+  /* Inner bars transparent to avoid double-stacking */
+  #nav-bar, #TabsToolbar, #PersonalToolbar, #toolbar-menubar, #titlebar {
+    background: transparent !important;
+    background-image: none !important;
+    color: inherit !important;
+  }
+  .toolbarbutton-1 { fill: currentColor !important; }
+
+  /* ===================== SIDEBAR (native vertical tabs) ====================== */
+  /* Single-layer tint */
+  #sidebar-main {
+    background: var(--uc-surface) !important;
+    color: var(--uc-fg) !important;
+
+    /* defeat theme paints inside the shadow host */
+    --lwt-sidebar-background-color: transparent !important;
+    --sidebar-background-color: transparent !important;
+  }
+
+  /* Don’t repaint over the tint */
+  #tabbrowser-tabs[orient="vertical"],
+  #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab,
+  #tabbrowser-tabs[orient="vertical"] .tab-background {
+    background: transparent !important;
+  }
+
+  /* Make selected/hovered tab POP (white overlays only) */
+  #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab[selected] .tab-background {
+    background: rgba(255,255,255,.22) !important;
+    border-left: 2px solid rgba(255,255,255,.65) !important;
+    border-radius: 6px !important;
+  }
+  #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab:hover .tab-background {
+    background: rgba(255,255,255,.12) !important;
+    border-left: 2px solid rgba(255,255,255,.35) !important;
+  }
+
+  /* ===================== URL BAR ====================== */
+  /* Pill matches the same surface tint */
+  #urlbar-background {
+    background: var(--uc-surface) !important;
+    border-color: rgba(255,255,255,.25) !important;
+  }
+
+  /* Dropdown container tint */
+  #urlbar {
+    --urlbarView-background: var(--uc-surface) !important;
+  }
+  .urlbarView { background: var(--uc-surface) !important; }
+
+  /* Strong, clear highlight for selection/hover in the dropdown */
+  .urlbarView-row[aria-selected="true"] > .urlbarView-row-inner,
+  .urlbarView-row[selected] > .urlbarView-row-inner {
+    background: rgba(255,255,255,.24) !important;
+  }
+  .urlbarView-row:hover > .urlbarView-row-inner {
+    background: rgba(255,255,255,.16) !important;
+  }
+
+  /* Ensure text stays readable on lighter chips */
+  .urlbarView-row .urlbarView-title,
+  .urlbarView-row[aria-selected="true"] .urlbarView-title,
+  .urlbarView-row[selected] .urlbarView-title {
+    color: var(--uc-fg) !important;
+  }
+}
+
+/* the following has no effect should delete here on: */
+@media (-moz-platform: linux) {
+  /* --- Separate alpha for the URL-bar dropdown --- */
+  :root {
+    /* your main tint is controlled by --uc-a already */
+    --uc-dd-a: .10; /* dropdown opacity (0..1). .10 ≈ 90% transparency */
+    --uc-dd-surface: rgba(var(--uc-r), var(--uc-g), var(--uc-b), var(--uc-dd-a));
+  }
+
+  /* Make the dropdown use our dedicated surface */
+  #urlbar {
+    --urlbarView-background: var(--uc-dd-surface) !important;
+  }
+
+  /* Kill extra paints inside the panel and apply exactly one background */
+  .urlbarView,
+  .urlbarView-body-outer,
+  .urlbarView-body-inner,
+  .urlbarView-results {
+    background: var(--uc-dd-surface) !important;
+    background-image: none !important;
+  }
+
+  /* Rows default to transparent so only the container paints,
+     then our selection/hover chips sit on top cleanly */
+  .urlbarView-row,
+  .urlbarView-row-inner {
+    background: transparent !important;
+  }
+
+  /* Keep your stronger chips (adjust if needed) */
+  .urlbarView-row[aria-selected="true"] > .urlbarView-row-inner,
+  .urlbarView-row[selected] > .urlbarView-row-inner {
+    background: rgba(255,255,255,.24) !important;
+  }
+  .urlbarView-row:hover > .urlbarView-row-inner {
+    background: rgba(255,255,255,.16) !important;
+  }
+}
+
