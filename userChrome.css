@@ -83,10 +83,84 @@
   .urlbarView-row[selected] .urlbarView-title {
     color: var(--uc-fg) !important;
   }
-}
 
-:root {
-  --tabpanel-background-color: transparent;
-  background: transparent;
+  /* ===================== HAMBURGER MENU ====================== */
+  /* Comprehensive hamburger menu transparency targeting */
+  
+  /* Primary popup containers */
+  #appMenu-popup, #PanelUI-popup {
+    background-color: transparent !important;
+    background-image: none !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    --panel-shadow: none !important;
+    --arrowpanel-background: var(--uc-surface) !important;
+    --panel-background: transparent !important;
+    -moz-appearance: none !important;
+  }
+
+  /* Main panel views and containers */
+  #appMenu-protonMainView, #PanelUI-mainView,
+  #appMenu-libraryView, #PanelUI-libraryView {
+    background-color: var(--uc-surface) !important;
+    background-image: none !important;
+    background: var(--uc-surface) !important;
+    --arrowpanel-background: var(--uc-surface) !important;
+    --panel-background: var(--uc-surface) !important;
+    color: var(--uc-fg) !important;
+  }
+
+  /* Subview body styling */
+  #appMenu-popup .panel-subview-body,
+  #PanelUI-popup .panel-subview-body {
+    background-color: var(--uc-surface) !important;
+    background-image: none !important;
+    background: var(--uc-surface) !important;
+  }
+
+  /* General panelview styling with comprehensive targeting */
+  panelview, .PanelUI-subView {
+    background-color: var(--uc-surface) !important;
+    background-image: none !important;
+    background: var(--uc-surface) !important;
+    --arrowpanel-background: var(--uc-surface) !important;
+    --panel-background: var(--uc-surface) !important;
+    --panel-shadow: none !important;
+    color: var(--uc-fg) !important;
+  }
+
+  /* Panel arrows and content containers */
+  .panel-arrowcontent, .panel-arrowbox {
+    background: var(--uc-surface) !important;
+    background-color: var(--uc-surface) !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    --panel-shadow: none !important;
+  }
+
+  /* Remove shadows from all panel elements */
+  #appMenu-popup *, #PanelUI-popup * {
+    box-shadow: none !important;
+  }
+
+  /* Menu items and buttons */
+  .subviewbutton, .panel-list-item {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+  /* Menu items hover states */
+  .subviewbutton:hover, .panel-list-item:hover {
+    background-color: rgba(255,255,255,.16) !important;
+    background-image: none !important;
+  }
+
+  /* Hamburger button itself */
+  #PanelUI-button, #PanelUI-menu-button {
+    background-image: none !important;
+    box-shadow: none !important;
+  }
 }
 
