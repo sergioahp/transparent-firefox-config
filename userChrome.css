@@ -13,6 +13,16 @@
   /* confirmed to be needed for sidebar to be transparent*/
   #browser { background: transparent !important; }
 
+  /* Make content areas transparent */
+  /* works, but: TODO: prune claude's suggestion */
+  #tabbrowser-tabpanels,
+  #tabbrowser-tabpanels > .deck-selected,
+  browser[type="content-primary"],
+  .browserContainer > .browserStack {
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+
   /* ===================== TOP BAR ====================== */
   /* Paint ONLY the toolbox so opacity matches everywhere */
   #navigator-toolbox {
