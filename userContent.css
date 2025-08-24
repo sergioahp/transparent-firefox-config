@@ -1,0 +1,40 @@
+/* Global webpage background - more transparent blue */
+html, body {
+  background: rgba(40, 44, 60, 0.50) !important;
+}
+
+/* Site-specific transparency rules */
+
+/* YouTube */
+@-moz-document domain(youtube.com) {
+  html, body, #page, #content, #primary, #secondary,
+  ytd-app, ytd-page-manager, ytd-browse,
+  .ytd-page-manager, .style-scope.ytd-app {
+    background: rgba(40, 44, 60, 0.50) !important;
+    background-color: rgba(40, 44, 60, 0.50) !important;
+  }
+}
+
+/* Google Search */
+@-moz-document domain(google.com) {
+  body, html, div#search > * {
+    background-color: rgba(40, 44, 60, 0.50) !important;
+  }
+}
+
+/* Reddit */
+@-moz-document domain(reddit.com) {
+  body, html, .bg-neutral-background,
+  ._3k9Md-dJ8KwvIz2SXcnkGC, .t1_tgn4gj > ._3k9Md-dJ8KwvIz2SXcnkGC,
+  shreddit-app, reddit-header-large {
+    background-color: rgba(40, 44, 60, 0.50) !important;
+  }
+}
+
+/* GitHub */
+@-moz-document domain(github.com) {
+  body, html, header, .application-main,
+  .js-header-wrapper, .Header, .footer {
+    background-color: rgba(40, 44, 60, 0.50) !important;
+  }
+}
