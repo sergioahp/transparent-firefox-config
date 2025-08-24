@@ -75,8 +75,8 @@
     border-color: rgba(255,255,255,.25) !important;
   }
 
-  /* confirmed to have effect */
-  .urlbarView { background: var(--uc-surface) !important; }
+  /* confirmed to have effect - less transparent for better readability */
+  .urlbarView { background: rgba(var(--uc-r), var(--uc-g), var(--uc-b), 0.90) !important; }
 
   /* Strong, clear highlight for selection/hover in the dropdown */
   .urlbarView-row[aria-selected="true"] > .urlbarView-row-inner,
@@ -109,10 +109,10 @@
   }
 
 
-  /* this sets the color */
+  /* this sets the color - same transparency as search suggestions */
   /* General panelview styling with comprehensive targeting */
   .PanelUI-subView {
-    background-color: var(--uc-surface) !important;
+    background-color: rgba(var(--uc-r), var(--uc-g), var(--uc-b), 0.90) !important;
   }
 
 
