@@ -17,10 +17,18 @@
   /* works, but: TODO: prune claude's suggestion */
   #tabbrowser-tabpanels,
   #tabbrowser-tabpanels > .deck-selected,
-  browser[type="content-primary"],
-  .browserContainer > .browserStack {
+  browser[type="content-primary"] {
     background: transparent !important;
     background-color: transparent !important;
+  }
+
+  /* Beyond the body element,
+   * beyond the html element,
+   * is the following thing, thus this is what one must tint
+   */
+  .browserContainer > .browserStack {
+      background: var(--uc-surface) !important;
+      background-color: var(--uc-surface) !important;
   }
 
   /* ===================== TOP BAR ====================== */
