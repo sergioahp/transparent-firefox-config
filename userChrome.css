@@ -138,3 +138,39 @@ background-color: rgba(255,255,255,.16) !important;
 #tab-preview-panel {
 --arrowpanel-background: var(--uc-surface-unblurred) !important;
 }
+
+/* ===================== CONTEXT MENUS ====================== */
+/* Outer context menu containers - transparent */
+menupopup,
+#contentAreaContextMenu,
+#tabContextMenu,
+#toolbar-context-menu {
+  background: transparent !important;
+  color: var(--uc-fg) !important;
+  border: none !important;
+}
+
+/* Inner menu content area - regular surface with more transparency */
+/* this is indeed blurred by the compositor */
+.menupopup-arrowscrollbox,
+.popup-internal-box {
+  background: var(--uc-surface) !important;
+}
+
+/* Menu items - transparent */
+menuitem,
+menu {
+  background: transparent !important;
+  color: var(--uc-fg) !important;
+}
+
+/* Menu item hover - transparent white like selected tabs */
+menuitem:hover,
+menu:hover {
+  background: rgba(255, 255, 255, 0.22) !important;
+}
+
+/* Menu separators */
+menuseparator {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
