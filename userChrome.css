@@ -3,7 +3,10 @@
 /* bg = #282c3c -> rgb(40,44,60); alpha .80 = ~20% transparent */
 --uc-r: 40; --uc-g: 44; --uc-b: 60;
 --uc-a: .80;
+/* less transparent for surfaces that can't be blurred (dropdowns, popups) */
+--uc-a-unblurred: .95;
 --uc-surface: rgba(var(--uc-r), var(--uc-g), var(--uc-b), var(--uc-a));
+--uc-surface-unblurred: rgba(var(--uc-r), var(--uc-g), var(--uc-b), var(--uc-a-unblurred));
 --uc-fg: #ffffff;
 }
 
@@ -82,7 +85,7 @@ border-color: rgba(255,255,255,.25) !important;
 }
 
 /* confirmed to have effect - less transparent for better readability */
-.urlbarView { background: rgba(var(--uc-r), var(--uc-g), var(--uc-b), 0.90) !important; }
+.urlbarView { background: var(--uc-surface-unblurred) !important; }
 
 /* Strong, clear highlight for selection/hover in the dropdown */
 .urlbarView-row[aria-selected="true"] > .urlbarView-row-inner,
@@ -118,7 +121,7 @@ color: var(--uc-fg) !important;
 /* this sets the color - same transparency as search suggestions */
 /* General panelview styling with comprehensive targeting */
 .PanelUI-subView {
-background-color: rgba(var(--uc-r), var(--uc-g), var(--uc-b), 0.90) !important;
+background-color: var(--uc-surface-unblurred) !important;
 }
 
 
@@ -133,5 +136,5 @@ background-color: rgba(255,255,255,.16) !important;
 }
 
 #tab-preview-panel {
---arrowpanel-background: rgba(var(--uc-r), var(--uc-g), var(--uc-b), 0.90) !important;
+--arrowpanel-background: var(--uc-surface-unblurred) !important;
 }
