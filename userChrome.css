@@ -1,138 +1,134 @@
-@media (-moz-platform: linux) {
+/* === palette === */
+:root {
+/* bg = #282c3c -> rgb(40,44,60); alpha .80 = ~20% transparent */
+--uc-r: 40; --uc-g: 44; --uc-b: 60;
+--uc-a: .80;
+--uc-surface: rgba(var(--uc-r), var(--uc-g), var(--uc-b), var(--uc-a));
+--uc-fg: #ffffff;
+}
 
-  /* === palette === */
-  :root {
-    /* bg = #282c3c -> rgb(40,44,60); alpha .80 = ~20% transparent */
-    --uc-r: 40; --uc-g: 44; --uc-b: 60;
-    --uc-a: .80;
-    --uc-surface: rgba(var(--uc-r), var(--uc-g), var(--uc-b), var(--uc-a));
-    --uc-fg: #ffffff;
-  }
+/* Keep the window surface from blocking translucency */
+/* confirmed to be needed for sidebar to be transparent*/
+#browser { background: transparent !important; }
 
-  /* Keep the window surface from blocking translucency */
-  /* confirmed to be needed for sidebar to be transparent*/
-  #browser { background: transparent !important; }
+/* Make content areas transparent */
+/* works, but: TODO: prune claude's suggestion */
+#tabbrowser-tabpanels,
+#tabbrowser-tabpanels > .deck-selected,
+browser[type="content-primary"] {
+background: transparent !important;
+background-color: transparent !important;
+}
 
-  /* Make content areas transparent */
-  /* works, but: TODO: prune claude's suggestion */
-  #tabbrowser-tabpanels,
-  #tabbrowser-tabpanels > .deck-selected,
-  browser[type="content-primary"] {
-    background: transparent !important;
-    background-color: transparent !important;
-  }
+/* Beyond the body element,
+* beyond the html element,
+* is the following thing, thus this is what one must tint
+*/
+.browserContainer > .browserStack {
+  background: var(--uc-surface) !important;
+  background-color: var(--uc-surface) !important;
+}
 
-  /* Beyond the body element,
-   * beyond the html element,
-   * is the following thing, thus this is what one must tint
-   */
-  .browserContainer > .browserStack {
-      background: var(--uc-surface) !important;
-      background-color: var(--uc-surface) !important;
-  }
+/* ===================== TOP BAR ====================== */
+/* Paint ONLY the toolbox so opacity matches everywhere */
+#navigator-toolbox {
+-moz-appearance: none !important;
+background: var(--uc-surface) !important;
+background-image: none !important;
+color: var(--uc-fg) !important;
+}
+/* Inner bars transparent to avoid double-stacking */
+#nav-bar, #TabsToolbar, #PersonalToolbar, #toolbar-menubar, #titlebar {
+background: transparent !important;
+background-image: none !important;
+color: inherit !important;
+}
+.toolbarbutton-1 { fill: currentColor !important; }
 
-  /* ===================== TOP BAR ====================== */
-  /* Paint ONLY the toolbox so opacity matches everywhere */
-  #navigator-toolbox {
-    -moz-appearance: none !important;
-    background: var(--uc-surface) !important;
-    background-image: none !important;
-    color: var(--uc-fg) !important;
-  }
-  /* Inner bars transparent to avoid double-stacking */
-  #nav-bar, #TabsToolbar, #PersonalToolbar, #toolbar-menubar, #titlebar {
-    background: transparent !important;
-    background-image: none !important;
-    color: inherit !important;
-  }
-  .toolbarbutton-1 { fill: currentColor !important; }
+/* ===================== SIDEBAR (native vertical tabs) ====================== */
+/* Comprehensive sidebar container targeting */
+#sidebar-box, #sidebar, #sidebar-header, #sidebar-main {
+background: var(--uc-surface) !important;
+color: var(--uc-fg) !important;
+}
 
-  /* ===================== SIDEBAR (native vertical tabs) ====================== */
-  /* Comprehensive sidebar container targeting */
-  #sidebar-box, #sidebar, #sidebar-header, #sidebar-main {
-    background: var(--uc-surface) !important;
-    color: var(--uc-fg) !important;
-  }
+/* confirmed to make the sidebars transparent, maybe remove the background
+* begind sidebars */
+#sidebar-box browser {
+background-color: transparent !important;
+}
 
-  /* confirmed to make the sidebars transparent, maybe remove the background
-   * begind sidebars */
-  #sidebar-box browser {
-    background-color: transparent !important;
-  }
+/* Make selected/hovered tab POP (white overlays only) */
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab[selected] .tab-background {
+background: rgba(255,255,255,.22) !important;
+border-left: 2px solid rgba(255,255,255,.65) !important;
+border-radius: 6px !important;
+}
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab:hover .tab-background {
+background: rgba(255,255,255,.12) !important;
+border-left: 2px solid rgba(255,255,255,.35) !important;
+}
 
-  /* Make selected/hovered tab POP (white overlays only) */
-  #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab[selected] .tab-background {
-    background: rgba(255,255,255,.22) !important;
-    border-left: 2px solid rgba(255,255,255,.65) !important;
-    border-radius: 6px !important;
-  }
-  #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab:hover .tab-background {
-    background: rgba(255,255,255,.12) !important;
-    border-left: 2px solid rgba(255,255,255,.35) !important;
-  }
+/* ===================== URL BAR ====================== */
+/* Pill matches the same surface tint */
+#urlbar-background {
+/* remember to avoid double tint, this should be transparent as it is over
+ * the already semitransparent horizontal bar
+ * and by that I mean the titlebar(?) the thing
+ * that contains the <- ->, reload, urlbar etc
+/* background: var(--uc-surface) !important; */
+background-color: transparent !important;
+border-color: rgba(255,255,255,.25) !important;
+}
 
-  /* ===================== URL BAR ====================== */
-  /* Pill matches the same surface tint */
-  #urlbar-background {
-    /* remember to avoid double tint, this should be transparent as it is over
-     * the already semitransparent horizontal bar
-     * and by that I mean the titlebar(?) the thing
-     * that contains the <- ->, reload, urlbar etc
-    /* background: var(--uc-surface) !important; */
-    background-color: transparent !important;
-    border-color: rgba(255,255,255,.25) !important;
-  }
+/* confirmed to have effect - less transparent for better readability */
+.urlbarView { background: rgba(var(--uc-r), var(--uc-g), var(--uc-b), 0.90) !important; }
 
-  /* confirmed to have effect - less transparent for better readability */
-  .urlbarView { background: rgba(var(--uc-r), var(--uc-g), var(--uc-b), 0.90) !important; }
+/* Strong, clear highlight for selection/hover in the dropdown */
+.urlbarView-row[aria-selected="true"] > .urlbarView-row-inner,
+.urlbarView-row[selected] > .urlbarView-row-inner {
+background: rgba(255,255,255,.24) !important;
+}
+.urlbarView-row:hover > .urlbarView-row-inner {
+background: rgba(255,255,255,.16) !important;
+}
 
-  /* Strong, clear highlight for selection/hover in the dropdown */
-  .urlbarView-row[aria-selected="true"] > .urlbarView-row-inner,
-  .urlbarView-row[selected] > .urlbarView-row-inner {
-    background: rgba(255,255,255,.24) !important;
-  }
-  .urlbarView-row:hover > .urlbarView-row-inner {
-    background: rgba(255,255,255,.16) !important;
-  }
+/* Ensure text stays readable on lighter chips */
+.urlbarView-row .urlbarView-title,
+.urlbarView-row[aria-selected="true"] .urlbarView-title,
+.urlbarView-row[selected] .urlbarView-title {
+color: var(--uc-fg) !important;
+}
 
-  /* Ensure text stays readable on lighter chips */
-  .urlbarView-row .urlbarView-title,
-  .urlbarView-row[aria-selected="true"] .urlbarView-title,
-  .urlbarView-row[selected] .urlbarView-title {
-    color: var(--uc-fg) !important;
-  }
+/* ===================== HAMBURGER MENU ====================== */
+/* Comprehensive hamburger menu transparency targeting */
 
-  /* ===================== HAMBURGER MENU ====================== */
-  /* Comprehensive hamburger menu transparency targeting */
-  
-  /* Primary popup containers */
-  #appMenu-popup {
-    /* while this makes the background transparent */
-    --panel-background: transparent !important;
-  }
+/* Primary popup containers */
+#appMenu-popup {
+/* while this makes the background transparent */
+--panel-background: transparent !important;
+}
 
-  /* Main panel views and containers */
-  #PanelUI-libraryView {
-    color: var(--uc-fg) !important;
-  }
+/* Main panel views and containers */
+#PanelUI-libraryView {
+color: var(--uc-fg) !important;
+}
 
 
-  /* this sets the color - same transparency as search suggestions */
-  /* General panelview styling with comprehensive targeting */
-  .PanelUI-subView {
-    background-color: rgba(var(--uc-r), var(--uc-g), var(--uc-b), 0.90) !important;
-  }
+/* this sets the color - same transparency as search suggestions */
+/* General panelview styling with comprehensive targeting */
+.PanelUI-subView {
+background-color: rgba(var(--uc-r), var(--uc-g), var(--uc-b), 0.90) !important;
+}
 
 
-  /* Menu items and buttons */
-  .subviewbutton, .panel-list-item {
-    background-color: transparent !important;
-  }
+/* Menu items and buttons */
+.subviewbutton, .panel-list-item {
+background-color: transparent !important;
+}
 
-  /* Menu items hover states */
-  .subviewbutton:hover, .panel-list-item:hover {
-    background-color: rgba(255,255,255,.16) !important;
-  }
-
+/* Menu items hover states */
+.subviewbutton:hover, .panel-list-item:hover {
+background-color: rgba(255,255,255,.16) !important;
 }
 
