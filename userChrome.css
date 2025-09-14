@@ -132,3 +132,6 @@ background-color: transparent !important;
 background-color: rgba(255,255,255,.16) !important;
 }
 
+#tab-preview-panel {
+--arrowpanel-background: rgba(var(--uc-r), var(--uc-g), var(--uc-b), 0.90) !important;
+}
