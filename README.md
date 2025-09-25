@@ -70,6 +70,27 @@ We attempted to blur Firefox's internal surfaces (dropdowns, menus) using:
 
 However, Firefox's rendering architecture prevents these techniques from working on internal browser surfaces. The transparency effects work, but blur is limited to what the compositor can provide for the window as a whole.
 
+### Compositor Blur Behavior
+
+Interesting compositor behavior observed with popups:
+- **Contained popups**: When Firefox popups are entirely within the Firefox window bounds, no blur is applied by the compositor
+- **Overflowing popups**: If any part of a popup extends beyond the Firefox window edge, the compositor applies blur to the entire popup
+- **Nested popups**: Popups that spawn from other popups (popup-of-popup) consistently receive compositor blur regardless of position
+
+This suggests the compositor treats overflowing and nested popups as separate surfaces, while contained popups are rendered as part of the main window surface.
+
+**Known Issue**: This behavior is documented in Hyprland GitHub issue [#5333](https://github.com/hyprwm/Hyprland/issues/5333) "Firefox add-on pop up UI and Chromium flickering issues". The issue confirms that contained popups experience rendering conflicts with blur effects, while overflowing popups render correctly with proper blur application.
+
+**Desired Outcome**: Consistent blur effects for all popups (both contained and overflowing) without rendering artifacts. The current inconsistency requires popups to extend beyond window boundaries to receive proper compositor blur treatment.
+
+**Visual Examples:**
+
+Context menu entirely within Firefox window (no blur):
+![Context Menu No Blur](context-menu-no-blur.png)
+
+Context menu extending beyond Firefox window edge (blur applied):
+![Context Menu With Blur](context-menu-with-blur.png)
+
 ## Contributing
 
 Feel free to submit issues and pull requests for improvements.
