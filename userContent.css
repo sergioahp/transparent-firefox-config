@@ -1,6 +1,10 @@
 /* Global webpage background - more transparent blue */
-html, body {
-  background: rgba(40, 44, 60, 0.50) !important;
+html {
+  background: transparent !important;
+}
+
+body {
+  background: transparent !important;
 }
 
 /* Site-specific transparency rules */
@@ -10,15 +14,15 @@ html, body {
   html, body, #page, #content, #primary, #secondary,
   ytd-app, ytd-page-manager, ytd-browse,
   .ytd-page-manager, .style-scope.ytd-app {
-    background: rgba(40, 44, 60, 0.50) !important;
-    background-color: rgba(40, 44, 60, 0.50) !important;
+    background: transparent !important;
+    background-color: transparent !important;
   }
 }
 
 /* Google Search */
 @-moz-document domain(google.com) {
   body, html, div#search > * {
-    background-color: rgba(40, 44, 60, 0.50) !important;
+    background-color: transparent !important;
   }
 }
 
@@ -27,14 +31,59 @@ html, body {
   body, html, .bg-neutral-background,
   ._3k9Md-dJ8KwvIz2SXcnkGC, .t1_tgn4gj > ._3k9Md-dJ8KwvIz2SXcnkGC,
   shreddit-app, reddit-header-large {
-    background-color: rgba(40, 44, 60, 0.50) !important;
+    background-color: transparent !important;
   }
 }
 
 /* GitHub */
 @-moz-document domain(github.com) {
-  body, html, header, .application-main,
+  html {
+    background: transparent !important;
+  }
+  body, header, .application-main,
   .js-header-wrapper, .Header, .footer {
-    background-color: rgba(40, 44, 60, 0.50) !important;
+    background-color: transparent !important;
   }
 }
+
+
+/* ChatGPT */
+@-moz-document domain(chatgpt.com) {
+  html {
+    background: transparent !important;
+  }
+  body {
+    background: transparent !important;
+  }
+  
+  /* Custom CSS variables */
+  :root {
+    /* accent color: this is a nice gradient at the bottom of the page*/
+    --bg-primary: #6600ff0a !important;
+    /* side bar */
+    /* TODO: fix */
+    /* it overlaps while scrolling with a bar it has at the top and bottom */
+    --bg-elevated-secondary: #6600ff0a !important;
+    /* submit message button */
+    --theme-secondary-btn-bg: rgba(40, 44, 60, 0.80) !important;
+    /* user message text bubble color */
+    --theme-user-msg-bg: rgba(50, 50, 50, 0.6) !important;
+  }
+  
+  /* code blocks */
+  .bg-token-sidebar-surface-primary {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+  }
+  /* the prompt box */
+  /* it uses a tailwind background like [#303030] so what do? */
+  /* .bg-token-bg-primary { */
+  /*     background: rgba(50, 50, 50, 0.90) !important; */
+  /*     backdrop-filter: blur(30px) contrast(50%); */
+  /* } */
+
+  #page-header {
+      background: #6600ff0a !important;
+  }
+}
+
+
