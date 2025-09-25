@@ -1,3 +1,7 @@
+.titlebar-buttonbox-container {
+  display: none !important;
+}
+
 /* === palette === */
 :root {
 /* bg = #282c3c -> rgb(40,44,60); alpha .80 = ~20% transparent */
