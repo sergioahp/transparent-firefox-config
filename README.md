@@ -36,6 +36,7 @@ A Firefox userChrome.css configuration that creates a translucent, modern browse
 4. **Enable userChrome.css in Firefox**:
    - Go to `about:config`
    - Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
+   - Set `browser.tabs.allow_transparent_browser` to `true`
 
 5. **Restart Firefox** to see the changes
 
