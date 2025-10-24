@@ -78,12 +78,14 @@ border-left: 2px solid rgba(255,255,255,.35) !important;
 
 /* ===================== URL BAR ====================== */
 /* Pill matches the same surface tint */
-#urlbar-background {
+#urlbar-background,
+.urlbar-background {
 /* remember to avoid double tint, this should be transparent as it is over
  * the already semitransparent horizontal bar
  * and by that I mean the titlebar(?) the thing
  * that contains the <- ->, reload, urlbar etc
-/* background: var(--uc-surface) !important; */
+ */
+background: transparent !important;
 background-color: transparent !important;
 border-color: rgba(255,255,255,.25) !important;
 }

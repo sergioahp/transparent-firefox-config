@@ -59,11 +59,11 @@ body {
   /* Custom CSS variables */
   :root {
     /* accent color: this is a nice gradient at the bottom of the page*/
-    --bg-primary: #6600ff0a !important;
+    --bg-primary: rgba(40, 44, 60, 0.80) !important;
     /* side bar */
     /* TODO: fix */
     /* it overlaps while scrolling with a bar it has at the top and bottom */
-    --bg-elevated-secondary: #6600ff0a !important;
+    --bg-elevated-secondary: rgba(40, 44, 60, 0.80) !important;
     /* submit message button */
     --theme-secondary-btn-bg: rgba(40, 44, 60, 0.80) !important;
     /* user message text bubble color */
@@ -82,7 +82,7 @@ body {
   /* } */
 
   #page-header {
-      background: #6600ff0a !important;
+      background: rgba(40, 44, 60, 0.80) !important;
   }
 }
 
