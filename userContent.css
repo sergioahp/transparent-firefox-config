@@ -60,10 +60,8 @@ body {
   :root {
     /* accent color: this is a nice gradient at the bottom of the page*/
     --bg-primary: rgba(40, 44, 60, 0.80) !important;
-    /* side bar */
-    /* TODO: fix */
-    /* it overlaps while scrolling with a bar it has at the top and bottom */
-    --bg-elevated-secondary: rgba(40, 44, 60, 0.80) !important;
+    /* side bar - now transparent since header/footer are opaque */
+    --bg-elevated-secondary: transparent !important;
     /* submit message button */
     --theme-secondary-btn-bg: rgba(40, 44, 60, 0.80) !important;
     /* user message text bubble color */
@@ -72,8 +70,18 @@ body {
   
   /* code blocks */
   .bg-token-sidebar-surface-primary {
-    background-color: rgba(0, 0, 0, 0.8) !important;
+    background-color: rgba(0, 0, 0, 0.70) !important;
   }
+
+  /* profile button container at bottom of sidebar and header at top */
+  /* .bg-token-bg-elevated-secondary, */
+  #sidebar-header,
+  aside.bg-token-bg-elevated-secondary,
+  [data-testid="accounts-profile-button"],
+  .sticky.bottom-0 {
+    background-color: rgba(40, 44, 60, 1.0) !important;
+  }
+
   /* the prompt box */
   /* it uses a tailwind background like [#303030] so what do? */
   /* .bg-token-bg-primary { */
@@ -81,9 +89,31 @@ body {
   /*     backdrop-filter: blur(30px) contrast(50%); */
   /* } */
 
+  /* Page header - responsive transparency */
   #page-header {
+    background: transparent !important;
+  }
+
+  /* On narrower screens, make header semi-transparent for visibility */
+  @media (max-width: 48em) {
+    #page-header {
       background: rgba(40, 44, 60, 0.80) !important;
+    }
   }
 }
 
+/* Claude.ai */
+@-moz-document domain(claude.ai) {
+  html {
+    background: transparent !important;
+  }
+  body {
+    background: transparent !important;
+  }
+
+  /* Sidebar navigation */
+  nav[aria-label="Sidebar"] {
+    background: transparent !important;
+  }
+}
 
