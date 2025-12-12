@@ -77,8 +77,7 @@ body {
   /* .bg-token-bg-elevated-secondary, */
   #sidebar-header,
   aside.bg-token-bg-elevated-secondary,
-  [data-testid="accounts-profile-button"],
-  .sticky.bottom-0 {
+  [data-testid="accounts-profile-button"] {
     background-color: rgba(40, 44, 60, 1.0) !important;
   }
 
