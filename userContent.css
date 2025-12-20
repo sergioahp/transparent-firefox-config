@@ -150,5 +150,10 @@ body {
   .to-bg-100\/0 {
     --tw-gradient-to: rgba(32, 36, 49, 0) var(--tw-gradient-to-position) !important;
   }
+
+  /* Disclaimer note at bottom */
+  div[role="note"].bg-bg-100 {
+    background: transparent !important;
+  }
 }
 
