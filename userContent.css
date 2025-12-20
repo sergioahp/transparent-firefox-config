@@ -76,7 +76,7 @@ body {
   /* profile button container at bottom of sidebar and header at top */
   /* .bg-token-bg-elevated-secondary, */
   #sidebar-header,
-  aside.bg-token-bg-elevated-secondary,
+  aside,
   [data-testid="accounts-profile-button"] {
     background-color: rgba(40, 44, 60, 1.0) !important;
   }
