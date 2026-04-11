@@ -62,6 +62,7 @@ body {
     --bg-primary: rgba(40, 44, 60, 0.80) !important;
     /* side bar - now transparent since header/footer are opaque */
     --bg-elevated-secondary: transparent !important;
+    --bg-secondary-surface: transparent !important;
     /* submit message button */
     --theme-secondary-btn-bg: rgba(40, 44, 60, 0.80) !important;
     /* user message text bubble color */
@@ -71,6 +72,11 @@ body {
   /* code blocks */
   .bg-token-sidebar-surface-primary {
     background-color: rgba(0, 0, 0, 0.70) !important;
+  }
+
+  /* ChatGPT added this wrapper/header surface around chat history */
+  .bg-token-bg-secondary-surface {
+    background-color: transparent !important;
   }
 
   /* profile button container at bottom of sidebar and header at top */
@@ -156,4 +162,3 @@ body {
     background: transparent !important;
   }
 }
-
