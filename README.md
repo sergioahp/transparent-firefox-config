@@ -87,9 +87,11 @@ This suggests the compositor treats overflowing and nested popups as separate su
 **Visual Examples:**
 
 Context menu entirely within Firefox window (no blur):
+
 ![Context Menu No Blur](context-menu-no-blur.png)
 
 Context menu extending beyond Firefox window edge (blur applied):
+
 ![Context Menu With Blur](context-menu-with-blur.png)
 
 ## Contributing
