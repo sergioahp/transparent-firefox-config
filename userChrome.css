@@ -14,9 +14,16 @@
 --uc-fg: #ffffff;
 }
 
-/* Keep the window surface from blocking translucency */
-/* confirmed to be needed for sidebar to be transparent*/
-#browser { background: transparent !important; }
+/* I'm don't think #browser still exists; replacing it with this: */
+/* This is a transparency layer below the tinted one*/
+/* Let me point out that this presents an opportunity for conditionally
+/ * tinting, could be æsthetically cool */
+body {
+  &:-moz-window-inactive {
+    background-color: transparent !important;
+  }
+  background-color: transparent !important;
+}
 
 /* Make content areas transparent */
 /* works, but: TODO: prune claude's suggestion */
