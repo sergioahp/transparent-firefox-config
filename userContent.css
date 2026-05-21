@@ -111,6 +111,11 @@ body {
     background-color: rgba(20, 22, 30, 0.30) !important;
   }
 
+  [data-composer-surface="true"] {
+    background-color: rgba(40, 44, 60, 0.97) !important;
+    backdrop-filter: blur(2px) !important;
+  }
+
   /* Page header - responsive transparency */
   #page-header {
     background: transparent !important;
