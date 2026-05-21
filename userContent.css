@@ -90,11 +90,13 @@ body {
   /* Secondary buttons */
   .btn-secondary {
     background-color: rgba(40, 44, 60, 0.80) !important;
+    background-color: rgba(40, 44, 60, 0.80) !important;
   }
 
   /* Main surface primary */
   .bg-token-main-surface-primary {
     background-color: rgba(40, 44, 60, 0.80) !important;
+    backdrop-filter: blur(2px) !important;
   }
 
   /* the prompt box */
@@ -103,6 +105,11 @@ body {
   /*     background: rgba(50, 50, 50, 0.90) !important; */
   /*     backdrop-filter: blur(30px) contrast(50%); */
   /* } */
+
+  /* Composer fade-out: darkened tint, mostly transparent */
+  .content-fade::after {
+    background-color: rgba(20, 22, 30, 0.30) !important;
+  }
 
   /* Page header - responsive transparency */
   #page-header {
