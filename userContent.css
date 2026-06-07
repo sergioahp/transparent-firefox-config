@@ -94,7 +94,25 @@ body {
   }
 
   /* Main surface primary */
+  /* used both in the sidebar and in the main content area */
   .bg-token-main-surface-primary {
+    background-color: rgba(40, 44, 60, 0.80) !important;
+    backdrop-filter: blur(2px) !important;
+  }
+
+  /* in the sidebar, keep it transparent */
+  #stage-slideover-sidebar .bg-token-main-surface-primary,
+  aside .bg-token-main-surface-primary,
+  nav[aria-label="Sidebar"] .bg-token-main-surface-primary {
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+  }
+
+  /* exception: the sticky section (New chat / Search chats) needs a backdrop
+     so the scrolling chat list doesn't show through behind it */
+  #stage-slideover-sidebar .bg-token-main-surface-primary.tall\:sticky,
+  aside .bg-token-main-surface-primary.tall\:sticky,
+  nav[aria-label="Sidebar"] .bg-token-main-surface-primary.tall\:sticky {
     background-color: rgba(40, 44, 60, 0.80) !important;
     backdrop-filter: blur(2px) !important;
   }
