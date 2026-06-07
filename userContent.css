@@ -67,11 +67,32 @@ body {
     --theme-secondary-btn-bg: rgba(40, 44, 60, 0.80) !important;
     /* user message text bubble color */
     --theme-user-msg-bg: rgba(50, 50, 50, 0.6) !important;
+
+    /* --main-surface-primary: rgba(40, 44, 60, 0.80) !important; */
+
+    /* These don't seem to work 😔 */
+    /* menu item states */
+    /* --menu-item-active: rgba(60, 70, 95, 0.55) !important; */
+    /* --menu-item-highlighted: rgba(55, 62, 85, 1.0) !important; */
+
+
+    /* TODO: --tw-prose-inline-code-bg*/
   }
+
+  /* .stage-sidebar-pure-surface { */
+  /*     background-color: #rgba(255, 44, 60, 0.80) !important; */
+  /* } */
   
   /* code blocks */
-  .bg-token-sidebar-surface-primary {
-    background-color: rgba(0, 0, 0, 0.70) !important;
+
+  /* .bg-token-sidebar-surface-primary { */
+  /* .bg-token-bg-elevated-secondary { */
+  /*   background-color: rgba(0, 0, 0, 0.70) !important; */
+  /* } */
+
+  /* search suggesitons, TODO: write what else*/
+  .bg-surface-primary {
+    background-color: rgba(40, 44, 60, 0.80) !important;
   }
 
   /* ChatGPT added this wrapper/header surface around chat history */
@@ -84,7 +105,7 @@ body {
   #sidebar-header,
   aside,
   [data-testid="accounts-profile-button"] {
-    background-color: rgba(40, 44, 60, 1.0) !important;
+    background-color: rgba(40, 44, 60, 0.8) !important;
   }
 
   /* Secondary buttons */
@@ -129,8 +150,17 @@ body {
     background-color: rgba(20, 22, 30, 0.30) !important;
   }
 
+  [class*="--sidebar-surface-primary:"] {
+      /* --sidebar-surface-primary: rgba(40, 44, 60, 0.80) !important; */
+      --sidebar-surface-primary: transparent !important;
+  }
+
+  #stage-slideover-sidebar {
+      background-color: transparent !important;
+  }
+
   [data-composer-surface="true"] {
-    background-color: rgba(40, 44, 60, 0.97) !important;
+    background-color: rgba(40, 44, 60, 0.95) !important;
     backdrop-filter: blur(2px) !important;
   }
 
