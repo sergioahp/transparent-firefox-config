@@ -151,7 +151,12 @@ background-color: rgba(255,255,255,.16) !important;
 }
 
 #tab-preview-panel {
---arrowpanel-background: var(--uc-surface-unblurred) !important;
+/* The visible card is the panel's internal content box, painted with
+   --panel-background (confirmed by debug: it showed yellow). Firefox stopped
+   reading --arrowpanel-background here, so tint --panel-background instead.
+   Keep the panel box's own background transparent so there's no ring. */
+--panel-background: var(--uc-surface) !important;
+background-color: transparent !important;
 }
 
 /* ===================== CONTEXT MENUS ====================== */
