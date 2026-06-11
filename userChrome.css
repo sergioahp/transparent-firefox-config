@@ -133,10 +133,11 @@ color: var(--uc-fg) !important;
 }
 
 
-/* this sets the color - same transparency as search suggestions */
-/* General panelview styling with comprehensive targeting */
+/* Match the other panels' surface (0.80, blurred) so the menu opacity is
+   consistent. The appMenu panel stays --panel-background: transparent, so this
+   subview is the single tint layer. */
 .PanelUI-subView {
-background-color: var(--uc-surface-unblurred) !important;
+background-color: var(--uc-surface) !important;
 }
 
 
@@ -150,12 +151,19 @@ background-color: transparent !important;
 background-color: rgba(255,255,255,.16) !important;
 }
 
-#tab-preview-panel {
-/* The visible card is the panel's internal content box, painted with
-   --panel-background (confirmed by debug: it showed yellow). Firefox stopped
-   reading --arrowpanel-background here, so tint --panel-background instead.
-   Keep the panel box's own background transparent so there's no ring. */
+/* New Firefox paints panel surfaces from the --panel-background token (it
+   dropped --arrowpanel-background), so tint every toolbar panel at once:
+   tab preview, unified extensions, bookmarks, identity/permission popups, etc.
+   More specific rules still win, e.g. #appMenu-popup keeps it transparent and
+   tints its .PanelUI-subView instead. Context menus are <menupopup>, not
+   <panel>, and are handled in the CONTEXT MENUS section below. */
+panel {
 --panel-background: var(--uc-surface) !important;
+}
+
+/* The tab preview also paints a thin ring from the panel box's own
+   background-color; keep that transparent so only the surface shows. */
+#tab-preview-panel {
 background-color: transparent !important;
 }
 
