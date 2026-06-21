@@ -85,10 +85,11 @@ body {
   
   /* code blocks */
 
-  /* .bg-token-sidebar-surface-primary { */
   /* .bg-token-bg-elevated-secondary { */
-  /*   background-color: rgba(0, 0, 0, 0.70) !important; */
-  /* } */
+  .bg-token-sidebar-surface-primary,
+  .sidebar-surface-primary {
+    background-color: transparent !important;
+  }
 
   /* search suggesitons, TODO: write what else*/
   .bg-surface-primary {
@@ -150,9 +151,13 @@ body {
     background-color: rgba(20, 22, 30, 0.30) !important;
   }
 
-  [class*="--sidebar-surface-primary:"] {
-      /* --sidebar-surface-primary: rgba(40, 44, 60, 0.80) !important; */
-      --sidebar-surface-primary: transparent !important;
+  /* sticky bottom sidebar section. Its class is the Tailwind arbitrary
+     property bg-(--sidebar-surface-primary), which compiles to
+     background: var(--sidebar-surface-primary). The parens can't be matched
+     as a plain .class selector, so match the class token directly with ~=
+     (exact whitespace-separated word, no escaping needed). */
+  [class~="bg-(--sidebar-surface-primary)"] {
+      background-color: transparent !important;
   }
 
   #stage-slideover-sidebar {
