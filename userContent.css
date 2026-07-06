@@ -178,7 +178,7 @@ body {
   /* Direct div children of header get backdrop-filter + blue tint */
   #page-header > div {
     backdrop-filter: blur(2px) !important;
-    background: rgba(40, 44, 60, 0.80) !important;
+    background: rgba(40, 44, 60, 0.95) !important;
   }
 }
 
