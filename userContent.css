@@ -169,14 +169,21 @@ body {
     backdrop-filter: blur(2px) !important;
   }
 
-  /* Page header - responsive transparency */
+  /* Page header - no backdrop-filter on the header itself */
   #page-header {
     background: transparent !important;
+    backdrop-filter: none !important;
   }
 
-  /* On narrower screens, make header semi-transparent for visibility */
+  /* Children of the header get backdrop-filter + transparent background */
+  #page-header > * {
+    background: transparent !important;
+    backdrop-filter: blur(2px) !important;
+  }
+
+  /* On narrower screens, make header children semi-transparent for visibility */
   @media (max-width: 48em) {
-    #page-header {
+    #page-header > * {
       background: rgba(40, 44, 60, 0.80) !important;
     }
   }
