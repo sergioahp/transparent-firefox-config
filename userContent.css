@@ -175,10 +175,35 @@ body {
     backdrop-filter: none !important;
   }
 
-  /* Children of the header get backdrop-filter + transparent background */
+  /* Attempt 1: direct children */
   #page-header > * {
-    background: transparent !important;
     backdrop-filter: blur(2px) !important;
+    background: red !important;
+  }
+
+  /* Attempt 2: all descendants */
+  #page-header * {
+    background: magenta !important;
+  }
+
+  /* Attempt 3: direct children with bg class */
+  #page-header > [class*="bg-"] {
+    background: orange !important;
+  }
+
+  /* Attempt 4: direct children that are divs */
+  #page-header > div {
+    background: lime !important;
+  }
+
+  /* Attempt 5: direct children that are headers */
+  #page-header > header {
+    background: cyan !important;
+  }
+
+  /* Attempt 6: any element inside with the main surface class */
+  #page-header .bg-token-main-surface-primary {
+    background: yellow !important;
   }
 
   /* On narrower screens, make header children semi-transparent for visibility */
