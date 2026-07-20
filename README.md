@@ -73,7 +73,9 @@ However, Firefox's rendering architecture prevents these techniques from working
 
 ### Compositor Blur Behavior
 
-Interesting compositor behavior observed with popups:
+**Update**: As of Firefox 152.0.6 and Hyprland 0.49.0 (commit `9958d297641b5c84dcff93f9039d80a5ad37ab00`, NixOS 26.05.20260510), contained context menus are blurred correctly. Root cause of the fix is unconfirmed. See [COMPOSITOR_BLUR_BEHAVIOR.md](COMPOSITOR_BLUR_BEHAVIOR.md) for details.
+
+Interesting compositor behavior observed with popups (historical, prior to the fix above):
 - **Contained popups**: When Firefox popups are entirely within the Firefox window bounds, no blur is applied by the compositor
 - **Overflowing popups**: If any part of a popup extends beyond the Firefox window edge, the compositor applies blur to the entire popup
 - **Nested popups**: Popups that spawn from other popups (popup-of-popup) consistently receive compositor blur regardless of position

@@ -1,5 +1,9 @@
 # Compositor Blur Behavior - Firefox Popups in Hyprland
 
+## Status: Fixed
+
+As of Firefox 152.0.6 and Hyprland 0.49.0 (commit `9958d297641b5c84dcff93f9039d80a5ad37ab00`, NixOS 26.05.20260510), contained context menus (e.g. right-click menus entirely within the Firefox window) are now blurred. Root cause of the fix is unconfirmed - could be either side.
+
 ## Issue Summary
 
 Firefox popups exhibit inconsistent blur behavior in Hyprland compositor depending on their position relative to the Firefox window boundaries.
