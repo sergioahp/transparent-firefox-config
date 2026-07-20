@@ -9,8 +9,12 @@
 --uc-a: .80;
 /* less transparent for surfaces that can't be blurred (dropdowns, popups) */
 --uc-a-unblurred: .95;
+/* more transparent for surfaces that are reliably compositor-blurred
+   (context menus, now that Hyprland blurs contained menupopups too) */
+--uc-a-menu: .75;
 --uc-surface: rgba(var(--uc-r), var(--uc-g), var(--uc-b), var(--uc-a));
 --uc-surface-unblurred: rgba(var(--uc-r), var(--uc-g), var(--uc-b), var(--uc-a-unblurred));
+--uc-surface-menu: rgba(var(--uc-r), var(--uc-g), var(--uc-b), var(--uc-a-menu));
 --uc-fg: #ffffff;
 }
 
@@ -184,11 +188,12 @@ menupopup,
   border: none !important;
 }
 
-/* Inner menu content area - regular surface with more transparency */
-/* this is indeed blurred by the compositor */
+/* Inner menu content area - more transparent since the compositor now
+   reliably blurs these menupopups (contained or not, see
+   COMPOSITOR_BLUR_BEHAVIOR.md) */
 .menupopup-arrowscrollbox,
 .popup-internal-box {
-  background: var(--uc-surface) !important;
+  background: var(--uc-surface-menu) !important;
 }
 
 /* Menu items - transparent */
