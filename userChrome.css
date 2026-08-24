@@ -67,7 +67,7 @@ color: inherit !important;
 
 /* ===================== SIDEBAR (native vertical tabs) ====================== */
 /* Comprehensive sidebar container targeting */
-#sidebar-box, #sidebar, #sidebar-header, #sidebar-main {
+#sidebar-box, #sidebar, #sidebar-header, #sidebar-container {
 background: var(--uc-surface) !important;
 color: var(--uc-fg) !important;
 }
@@ -128,9 +128,6 @@ color: var(--uc-fg) !important;
 /* Primary popup containers */
 #appMenu-popup {
 /* while this makes the background transparent */
-/* ff 152 renamed --panel-background to --panel-background-color; keep both
-   so the theme also works on 151 and older */
---panel-background: transparent !important;
 --panel-background-color: transparent !important;
 }
 
@@ -141,7 +138,7 @@ color: var(--uc-fg) !important;
 
 
 /* Match the other panels' surface (0.80, blurred) so the menu opacity is
-   consistent. The appMenu panel stays --panel-background: transparent, so this
+   consistent. The appMenu panel stays transparent, so this
    subview is the single tint layer. */
 .PanelUI-subView {
 background-color: var(--uc-surface) !important;
@@ -158,16 +155,13 @@ background-color: transparent !important;
 background-color: rgba(255,255,255,.16) !important;
 }
 
-/* New Firefox paints panel surfaces from the --panel-background-color token
-   (ff 152 renamed --panel-background, which had replaced
-   --arrowpanel-background), so tint every toolbar panel at once:
+/* Firefox paints panel surfaces from the --panel-background-color token, so
+   tint every toolbar panel at once:
    tab preview, unified extensions, bookmarks, identity/permission popups, etc.
    More specific rules still win, e.g. #appMenu-popup keeps it transparent and
    tints its .PanelUI-subView instead. Context menus are <menupopup>, not
-   <panel>, and are handled in the CONTEXT MENUS section below.
-   Both token names are set so the theme also works on 151 and older. */
+   <panel>, and are handled in the CONTEXT MENUS section below. */
 panel {
---panel-background: var(--uc-surface) !important;
 --panel-background-color: var(--uc-surface) !important;
 }
 
